@@ -39,7 +39,7 @@ function Invoke-ServiceStrike {
     .EXAMPLE
 
        Import-Module .\Invoke-ServiceStrike.ps1
-       Invoke-ServiceStrike -Command <revShell> [-timeout 45000 -threads 5 -ComputerName '192.168.1.103']
+       Invoke-ServiceStrike -Command <revShell> [-timeout 45000 -threads 5 -ComputerName '192.168.1.103' -ServiceName test]
         
 #>
 
@@ -164,4 +164,5 @@ ZnVuY3Rpb24gSW52b2tlLVBzRXhlYyB7CiAgICA8IwogICAgLlNZTk9QU0lTCgogICAgICAgIFRoaXMg
         }
     
     }
+
 }
