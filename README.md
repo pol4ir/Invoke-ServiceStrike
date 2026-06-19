@@ -1,5 +1,5 @@
 # Invoke-ServiceStrike
-Attempts to create and start a service by bypassing the OpenService call, in order to verify whether the current user has local admin privileges on domain or LAN machines, assuming that only the SC_MANAGER_ALL_ACCESS right is available on the SCManager.
+Attempts to create and start a service by bypassing the OpenService call, in order to verify whether the current user has local admin privileges on domain or LAN machines, assuming that only the SC_MANAGER_CREATE_SERVICE and SC_MANAGER_CONNECT rights are available on the SCManager.
 
 This script includes and executes a modified version of <a href="https://gist.github.com/HarmJ0y/c84065c0c487d4c74cc1">Invoke-PsExec</a> originally published by Will Schroeder (@harmj0y).
 ## Usage
